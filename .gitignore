@@ -23,4 +23,11 @@
 hs_err_pid*
 replay_pid*
 
+# intellij IDEA
 .idea
+*.iml
+out/
+gen/
+
+# Maven
+target/
