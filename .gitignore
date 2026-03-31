@@ -31,3 +31,6 @@ gen/
 
 # Maven
 target/
+
+#vscode
+.code
