@@ -4,36 +4,26 @@ import java.time.LocalDateTime;
 import java.util.ArrayList;
 
 public class Pedido {
+    private int numero;
     private Cliente cliente;
     private ArrayList<ItemPedido> itens;
-    private boolean fechado;
-    private LocalDateTime dataCriacao;
 
-    public Pedido(Cliente cliente){
+    public Pedido(int numero, Cliente cliente){
+        this.numero = numero;
         this.cliente = cliente;
         this.itens = new ArrayList<>();
-        this.fechado = false;
-        //this.dataCriacao = LocalDateTime.now();  
     }
 
     public void adicionarItem(ItemPedido item){
-        if (fechado) {
-            System.out.println("Pedido já está fechado!");
-            return;
-        }
         itens.add(item);
     }
 
     public double calcularTotal(){
         double total = 0;
         for (ItemPedido item : itens){
-            total += item.getSubtotal();
+            total += item.calcularSubtotal();
         }
         return total;
-    }
-
-    public void finalizarPedido(){
-        this.fechado = true;
     }
 
     public void gerarRecibo(){
@@ -43,13 +33,12 @@ public class Pedido {
         }
 
         System.out.println("===== RECIBO =====");
-        System.out.println("Cliente: " + client.getNome());
+        System.out.println(cliente.exibirResumo());
         for (ItemPedido item : itens){
-            System.out.println(item.GetProduto().getNome() + " | Quantidade: " + item.getQuantidade() + " | Subtotal : R$ " + item.getSubtotal());
+            System.out.println("Item | Subtotal : R$ " + item.calcularSubtotal());
         }
 
         System.out.println("------------------");
-        System.out.println("TOTAL: R$ " + CALCULARtOTAL());
-        Sytem.out.println("Status: " + (fechado ? "Fechado" : "Aberto"));
+        System.out.println("TOTAL: R$ " + calcularTotal());
     }
 }
