@@ -13,7 +13,7 @@ public class Cliente {
     }
 
     public String exibirResumo(){
-        String dados = "Nome: " + nome + "\nEmail: " + email + "\nEndereco: " + endereco;
+        String dados = "Nome: " + nome + "\nEmail: " + email + "\nEndereco: " + endereco.rua() + ", nº " + endereco.numero() + ", CEP: " + endereco.cep();
         return dados;
     }
 
