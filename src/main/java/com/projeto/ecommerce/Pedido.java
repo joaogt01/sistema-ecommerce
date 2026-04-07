@@ -1,3 +1,6 @@
+package com.projeto.ecommerce;
+
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 
 public class Pedido {
@@ -42,7 +45,7 @@ public class Pedido {
         System.out.println("===== RECIBO =====");
         System.out.println("Cliente: " + client.getNome());
         for (ItemPedido item : itens){
-            Systrem.out.println(Item.GetProduto().getNome() + " | Quantidade: " + item.getQuantidade() + " | Subtotal : R$ " + item.getSubtotal());
+            System.out.println(item.GetProduto().getNome() + " | Quantidade: " + item.getQuantidade() + " | Subtotal : R$ " + item.getSubtotal());
         }
 
         System.out.println("------------------");
